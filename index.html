@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+	<script src="main.js"></script>
+	<title>Contact List</title>
+</head>
+<body ng-app='myApp' ng-controller='mainCtrl'>
+<h1>Contact List</h1>
+<div class='buttons'>
+<input type="text" placeholder="Name" ng-model='newContact.name'>
+<input type="number" placeholder="Phone Number" ng-model='newContact.number'>
+<input type="text" placeholder="Email" ng-model='newContact.email'>
+<button class='btn btn-info' ng-click='addContact()'>Add Contact!</button>
+</div>
+<table class='table'>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Phone</th>
+      <th>Email</th>
+      <th>Delete</th>
+			<th>Edit</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat = 'contact in contacts track by $index'>
+			<td>{{contact.name}}</td>
+			<td>{{contact.number}}</td>
+      <td>{{contact.email}}</td>
+			<td><button class="btn btn-danger" ng-click='deleteContact(contact)'><span class='glyphicon glyphicon-remove'></span></button></td>
+      <td><button class='btn btn-success' ng-click='editContact()'><span class="glyphicon glyphicon-pencil"></span></button></td>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>
